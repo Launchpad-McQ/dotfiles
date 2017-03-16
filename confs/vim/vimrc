@@ -1,24 +1,32 @@
 """""""""""""""""""""""""""""""""
 " .vimrc - Config file for vim  "
 "                               "
-" 2015-06-19                    "
-" by Olof <medik> Sjödin        "
+" 2017-03-16                    "
+" by Launchpad McQ
 "  
 "                               "
 " Licensed with GPL v3.0        "
 "                               "
 """""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-
-"" START Vundle
-set nocompatible                    " choose no compatibility with legacy vi
-filetype off
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-Plugin 'gmarik/Vundle.vim'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-"" START Plugin list
+" The following are examples of different formats supported.
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+"Plugin 'ascenator/L9', {'name': 'newL9'}
+"
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-fugitive'
@@ -32,15 +40,29 @@ Plugin 'sjl/gundo.vim'
 Plugin 'lervag/vim-latex'
 Plugin 'LucHermitte/lh-vim-lib'
 Plugin 'fatih/vim-go'
+
 "" END Plugin list
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
-call vundle#end()
+" activates filetype detection
 filetype plugin indent on
-"" END Vundle
 
+syntax on
+set nu
 
-"" Colorscheme 
-syntax enable
 if has('gui_running')
     colorscheme solarized
     let g:airline_powerline_fonts=1
@@ -48,9 +70,18 @@ else
     colorscheme default
 endif
 
+"Switching windows
+nnoremap <S-J> <C-W><C-J>
+nnoremap <S-K> <C-W><C-K>
+nnoremap <S-L> <C-W><C-L>
+nnoremap <S-H> <C-W><C-H>
 
 set encoding=utf-8
+
 set showcmd             " display incomplete commands
+
+"Special for dvorak layout. Qwerty when in normal mode. dvorak otherwise.
+set langmap='q,\\,w,.e,pr,yt,fy,gu,ci,ro,lp,/[,=],aa,os,ed,uf,ig,dh,hj,tk,nl,s\\;,-',\\;z,qx,jc,kv,xb,bn,mm,w\\,,v.,z/,[-,]=,\"Q,<W,>E,PR,YT,FY,GU,CI,RO,LP,?{,+},AA,OS,ED,UF,IG,DH,HJ,TK,NL,S:,_\",:Z,QX,JC,KV,XB,BN,MM,W<,V>,Z?
 
 "" Tab specific option, inspired from http://www.haskell.org/haskellwiki/Vim
 " PEP 8: https://www.python.org/dev/peps/pep-0008/
@@ -58,14 +89,14 @@ set textwidth=79
 set tabstop=8   	" sets one tab to 8 spaces
 set expandtab           " will use spaces instead of tab
 set shiftwidth=4	" sets indent to 4 spaces
-set softtabstop=4       " 
+set softtabstop=4       "
 set smarttab		" sets tab to the value of shiftwidth in beginning of a line
 set shiftround		" will align indent to the closest multiple of shiftwidth
 set autoindent          " align the new line indent with the previous line
 set nojoinspaces	" don't add spaces when joining lines
 
 
-set backspace=indent,eol,start      " backspace through everything in insert mode 
+set backspace=indent,eol,start      " backspace through everything in insert mode
 set nolist
 
 "" Searching
@@ -75,7 +106,7 @@ set ignorecase                      " searches are case insensitive...
 set smartcase                       " ... unless they contain at least one capital letter
 
 "" Mappings
-let mapleader = ","                 " setting leader to , 
+let mapleader = ","                 " setting leader to ,
 
 nmap <F2> :NERDTreeToggle<CR>       " mapping f2 to NERDTreeToggle
 nmap <F8> :TagbarToggle<CR>         " mapping f8 to TagbarToggle
