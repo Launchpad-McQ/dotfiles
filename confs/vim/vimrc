@@ -1,13 +1,3 @@
-"""""""""""""""""""""""""""""""""
-" .vimrc - Config file for vim  "
-"                               "
-" 2017-03-16                    "
-" by Launchpad McQ
-"  
-"                               "
-" Licensed with GPL v3.0        "
-"                               "
-"""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -20,9 +10,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
+    " The following are examples of different formats supported.
+        " plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 "Plugin 'ascenator/L9', {'name': 'newL9'}
@@ -36,7 +26,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
-"Plugin 'klen/python-mode'
+Plugin 'klen/python-mode'
 Plugin 'lervag/vim-latex'
 Plugin 'LucHermitte/lh-vim-lib'
 Plugin 'fatih/vim-go'
@@ -62,6 +52,7 @@ filetype plugin indent on
 
 syntax on
 set nu
+set clipboard=unnamed
 
 if has('gui_running')
     colorscheme solarized
@@ -81,7 +72,7 @@ set encoding=utf-8
 set showcmd             " display incomplete commands
 
 "Special for dvorak layout. Qwerty when in normal mode. dvorak otherwise.
-set langmap='q,\\,w,.e,pr,yt,fy,gu,ci,ro,lp,/[,=],aa,os,ed,uf,ig,dh,hj,tk,nl,s\\;,-',\\;z,qx,jc,kv,xb,bn,mm,w\\,,v.,z/,[-,]=,\"Q,<W,>E,PR,YT,FY,GU,CI,RO,LP,?{,+},AA,OS,ED,UF,IG,DH,HJ,TK,NL,S:,_\",:Z,QX,JC,KV,XB,BN,MM,W<,V>,Z?
+set langmap=åq,äw,öe,pr,yt,fy,gu,ci,ro,lp,/[,=],aa,os,ed,uf,ig,dh,hj,tk,nl,s\\;,-',\\;z,qx,jc,kv,xb,bn,mm,w\\,,v.,z/,[-,]=,\"Q,<W,>E,PR,YT,FY,GU,CI,RO,LP,?{,+},AA,OS,ED,UF,IG,DH,HJ,TK,NL,S:,_\",:Z,QX,JC,KV,XB,BN,MM,W<,V>,Z?
 
 "" Tab specific option, inspired from http://www.haskell.org/haskellwiki/Vim
 " PEP 8: https://www.python.org/dev/peps/pep-0008/
@@ -89,14 +80,14 @@ set textwidth=79
 set tabstop=8   	" sets one tab to 8 spaces
 set expandtab           " will use spaces instead of tab
 set shiftwidth=4	" sets indent to 4 spaces
-set softtabstop=4       "
+set softtabstop=4       " 
 set smarttab		" sets tab to the value of shiftwidth in beginning of a line
 set shiftround		" will align indent to the closest multiple of shiftwidth
 set autoindent          " align the new line indent with the previous line
 set nojoinspaces	" don't add spaces when joining lines
 
 
-set backspace=indent,eol,start      " backspace through everything in insert mode
+set backspace=indent,eol,start      " backspace through everything in insert mode 
 set nolist
 
 "" Searching
@@ -106,7 +97,7 @@ set ignorecase                      " searches are case insensitive...
 set smartcase                       " ... unless they contain at least one capital letter
 
 "" Mappings
-let mapleader = ","                 " setting leader to ,
+let mapleader = ","                 " setting leader to , 
 
 nmap <F2> :NERDTreeToggle<CR>       " mapping f2 to NERDTreeToggle
 nmap <F8> :TagbarToggle<CR>         " mapping f8 to TagbarToggle
